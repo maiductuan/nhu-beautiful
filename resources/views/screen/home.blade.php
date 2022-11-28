@@ -176,9 +176,9 @@
                         <h1 class="mb-4">Best Relax And Spa Zone</h1>
                         <p>Dolores lorem lorem ipsum sit et ipsum. Sadip sea amet diam dolore sed et. Sit rebum labore sit sit ut vero no sit. Et elitr stet dolor sed sit et sed ipsum et kasd ut. Erat duo eos et erat sed diam duo</p>
                         <ul class="list-inline">
-                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Mon – Fri : 9:00 AM - 7:00 PM</li>
-                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Saturday : 9:00 AM - 6:00 PM</li>
-                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>Sunday : Closed</li>
+                          @foreach($ListOpenHours as $LOpenHours) 
+                            <li class="h6 py-1"><i class="far fa-circle text-primary mr-3"></i>{{$LOpenHours->start_date}} – {{$LOpenHours->end_date	}} : {{$LOpenHours->start_time}} - {{$LOpenHours->end_time}}</li></a>
+                          @endforeach
                         </ul>
                         <a href="" class="btn btn-primary mt-2">Book Now</a>
                     </div>
@@ -341,6 +341,36 @@
     </div>
     <!-- Team End -->
 
+    <!-- blog Start -->
+    <div class="container-fluid py-5">
+        <div class="container pt-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-6">
+                    <h6 class="d-inline-block bg-light text-primary text-uppercase py-1 px-2">Spa Specialist</h6>
+                    <h1 class="mb-5">Blog</h1>
+                </div>
+            </div>
+            <div class="row">
+              @foreach($bloglist as $bloglist) 
+                <div class="col-lg-3 col-md-6">
+                    <div class="team position-relative overflow-hidden mb-5">
+                        <img class="img-fluid" src="../upload/images/{{$bloglist->blog_image}}" alt="">
+                        <div class="position-relative text-center">
+                            <div class="team-text bg-primary text-white">
+                                <h5 class="text-white text-uppercase">{{$bloglist->cat_name}}</h5>
+                                <p class="m-0">{{$bloglist->blog_title}}</p>
+                            </div>
+                            <div class="team-social bg-dark text-center">
+                                <a class="btn btn-outline-primary btn-square mr-2" href="#">Đọc bài</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- blog End -->
 
     <!-- Testimonial Start -->
     <div class="container-fluid py-5">

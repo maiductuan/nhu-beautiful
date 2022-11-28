@@ -56,9 +56,19 @@ Route::post('service-facebook/like-post', 'App\Http\Controllers\HomeController@l
 Route::get('service-facebook/like-order-history', 'App\Http\Controllers\HomeController@OrderHistory'); 
 
 //user
-Route::get('credit-card', 'App\Http\Controllers\CreditCardController@index'); 
-Route::get('{id}', 'App\Http\Controllers\CreditCardController@profile'); 
+// Route::get('credit-card', 'App\Http\Controllers\CreditCardController@index'); 
+// Route::get('{id}', 'App\Http\Controllers\CreditCardController@profile'); 
 
+//open-hours
+Route::get('open-hours/list', 'App\Http\Controllers\OpenHoursController@index');
+Route::get('open-hours/add', 'App\Http\Controllers\OpenHoursController@create'); 
+Route::post('open-hours/add', 'App\Http\Controllers\OpenHoursController@store'); 
+
+//booking
+Route::get('booking/list', 'App\Http\Controllers\BookingController@index');
+Route::get('booking/add', 'App\Http\Controllers\BookingController@create'); 
+Route::get('booking', 'App\Http\Controllers\BookingController@Booking_Create');
+Route::post('booking', 'App\Http\Controllers\BookingController@Booking_Store'); 
 // Route::group(['middleware' => ['auth']], function () {
 
 // //  dashboard

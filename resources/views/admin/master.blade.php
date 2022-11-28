@@ -226,6 +226,40 @@
               </div>
             </li>
             <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-Booking">
+                <span class="menu-title">Booking</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+              <div class="collapse" id="general-Booking">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{url('booking/add')}}">Add Booking</a></li>
+                </ul>
+              </div>
+              <div class="collapse" id="general-Booking">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{url('booking/list')}}">List Booking</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-bs-toggle="collapse" href="#general-hours">
+                <span class="menu-title">Open Hours</span>
+                <i class="menu-arrow"></i>
+                <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+              </a>
+              <div class="collapse" id="general-hours">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{url('open-hours/add')}}">Add open hours</a></li>
+                </ul>
+              </div>
+              <div class="collapse" id="general-hours">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="{{url('open-hours/list')}}">List open hours</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Template website</span>
                 <i class="menu-arrow"></i>

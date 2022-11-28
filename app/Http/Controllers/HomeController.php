@@ -10,6 +10,7 @@ use App\models\TemplateWebsite;
 use App\models\LikePost;
 Use App\models\User;
 use App\models\Service;
+use App\models\OpenHours;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Redirect;
@@ -21,13 +22,14 @@ class HomeController extends Controller
     {
         $bloglist = DB::table('blog as t')
         ->leftJoin('category as cat', 't.cat_id', '=', 'cat.id')
-        ->select('t.id','t.blog_title','cat.cat_name','t.cat_id','t.blog_contents','t.blog_status')
+        ->select('t.id','t.blog_title','cat.cat_name','t.cat_id','t.blog_contents','t.blog_status','t.blog_image')
         ->orderby('id','desc')->get();
         $listtemplate = TemplateWebsite::orderby('id','desc')->get();
         $ListService = Service::orderby('id','desc')->get();
-        $BestService = Service::orderby('id','desc')->where('best',1)->get();
-        return view('screen.home',compact('bloglist','listtemplate','ListService'));
+        $ListOpenHours = OpenHours::orderby('id','desc')->where('status',0)->get();
+        return view('screen.home',compact('bloglist','listtemplate','ListService','ListOpenHours'));
     }
+
     public function login()
     {
         return view('screen.login');
