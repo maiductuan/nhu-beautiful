@@ -54,12 +54,11 @@ Route::get('service-facebook/list', 'App\Http\Controllers\HomeController@service
 Route::get('service-facebook/like-post', 'App\Http\Controllers\HomeController@like_post'); 
 Route::post('service-facebook/like-post', 'App\Http\Controllers\HomeController@likeAdd'); 
 Route::get('service-facebook/like-order-history', 'App\Http\Controllers\HomeController@OrderHistory'); 
-<<<<<<< HEAD
 
 //user
 Route::get('credit-card', 'App\Http\Controllers\CreditCardController@index'); 
 Route::get('{id}', 'App\Http\Controllers\CreditCardController@profile'); 
-=======
+
 // Route::group(['middleware' => ['auth']], function () {
 
 // //  dashboard
@@ -123,7 +122,6 @@ Route::get('{id}', 'App\Http\Controllers\CreditCardController@profile');
 // Route::post('send','ChatController@store');
 // Route::get('remove-chat/{id}','ChatController@remove');
 
->>>>>>> parent of ae6da25 (ok)
 
 
 
