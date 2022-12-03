@@ -5,3 +5,5 @@ scan sonar:
   stage: scansonar
   script:
     - D:\devops\sonar-scanner-4.7.0.2747-windows\bin\sonar-scanner.bat -Dsonar.projectKey=pro -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.login=sqp_4ed178b3d3a310ac439a0b3d3b43801bf442de13
+  tags:
+    - PC-windows
