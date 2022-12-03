@@ -12,6 +12,6 @@ class Service extends Model
     protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'id','cat_id','name','description','image','status','created_at','update_at'	
+        'id','cat_id','name','description','image','price','status','created_at','update_at'	
     ];
 }

@@ -14,54 +14,40 @@
                     <table class="table">
                     <thead>
                         <tr>
-                        <th>ID</th>
-                        <th>User</th>
-                        <th>Server</th>
-                        <th>Link</th>
-                        <th>Cảm xúc</th>
-                        <th>Số lượng</th>
-                        <th>Số cảm xúc đã chạy</th>
-                        <th>Status</th>
-                        <th>Đơn giá</th>
-                        <th>Tổng tiền</th>
-                        <th>Action</th>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>service name</th>
+                            <th>description</th>
+                            <th>Image</th>
+                            <th>Status</th>
+                            <th>price</th>
+                            <th>Last update</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach($ListLikePost as $listtem) 
+                    @foreach($ListService as $ListService) 
                         <tr>    
-                            <td scope="row">{{$listtem->id}}</td>
-                            <td>{{$listtem->user_id}}</td>
-                            <td>{{$listtem->server}}</td>
-                            <td>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" value="{{$listtem->link_post}}">
-                                    <div class="input-group-append">
-                                        <a href="{{$listtem->link_post}}" target="_blank"><span class="input-group-text">^</span></a>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><i class="bi-hand-thumbs-up text-primary"></i></td>
-                            <td>{{$listtem->soluong}}</td>
-                            <td>{{$listtem->soluong}}</td>
-                            @if($listtem->status == 0)
+                            <td scope="row">{{$ListService->id}}</td>
+                            <td>{{$ListService->cat_id}}</td>
+                            <td>{{$ListService->name}}</td>
+                            <td><textarea class="form-control" rows="4">{{$ListService->description}}</textarea></td>
+                            <td><img src="{{asset('../upload/images/')}}/{{$ListService->image}}" alt="{{$ListService->name}}" /></td>
+                            @if($ListService->status == 0)
                                 <td>
-                                    <p class="bg-warning">Đang chờ</p>
+                                    <p class="bg-warning">Hiden</p>
                                 </td>
                             @else
                                 <td>
-                                    <p class="bg-success">Thành công</p>
+                                    <p class="bg-success">Hoạt động</p>
                                 </td>
                             @endif
-                            <td>{{$listtem->price}}</td>
-                            <td><?php $total=($listtem->price*$listtem->soluong); echo number_format($total, 0); ?> VNĐ</td>
-                            <td>
-                                <form class="forms-sample" action="{{url('service-facebook/like-order-done')}}" method="post" enctype="multipart/form-data">
-                                    <input type="hidden" id="_token" name="_token" value="{{ csrf_token() }}"/>
-                                    <input type="hidden" name="id" value="{{$listtem->id}}"/>
-                                    <button type="submit" class="btn btn-gradient-primary">Done</button>
-                                </form>
-                            </td>
+                            @if($ListService->price == null)
+                                <td>N/A</td>
+                            @else
+                                <td>{{$ListService->price}}$</td>
+                            @endif
+                            <td>{{$ListService->update_at}}</td>
                         </tr>
                     @endforeach
                     </tbody>

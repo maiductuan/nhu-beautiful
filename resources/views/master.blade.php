@@ -9,7 +9,8 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <!-- <link href="{{asset('../screen/img/icon_web.png')}}" rel="icon"> -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.icon-icons.com/icons2/2967/PNG/96/makeup_cosmetic_beauty_lipstick_mascara_icon_186782.png">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">

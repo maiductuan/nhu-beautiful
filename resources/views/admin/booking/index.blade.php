@@ -9,7 +9,7 @@
             <div class="col-12 grid-margin">
             <div class="card">
                 <div class="card-body">
-                <h4 class="card-title">Recent Tickets</h4>
+                <h4 class="card-title">Order Booking</h4>
                 <div class="table-responsive">
                     <table class="table">
                     <thead>
@@ -22,13 +22,14 @@
                             <th> Booking time </th>
                             <th> Message </th>
                             <th> status </th>
+                            <th> Last update </th>
                             <th> </th>
                         </tr>
                     </thead>
                     <tbody>
                     @foreach($ListBooking as $ListBooking) 
                         <tr>   
-                            <td>Tuấn</td> 
+                            <td>{{$ListBooking->user_id}}</td> 
                             <td>{{$ListBooking->book_service_id}}</td> 
                             <td>{{$ListBooking->book_email}}</td> 
                             <td>{{$ListBooking->book_phone}}</td> 
@@ -41,18 +42,23 @@
                             </td>
                             @elseif($ListBooking->status == 2)
                             <td>
-                                Nhận
+                                <p class="text-primary">Nhận</p> 
                             </td>
                             @elseif($ListBooking->status == 3)
                             <td>
-                                Done
+                               <p class="text-success">Done</p> 
+                            </td>
+                            @elseif($ListBooking->status == 4)
+                            <td>
+                               <p class="text-danger">Cancel</p> 
                             </td>
                             @else
                             <td>
-                                New Booking 
+                                <p class="text-secondary">New Booking </p>
                             </td>
                             @endif
-                            <td><a href="{{url('user/edit',$ListBooking->id)}}">Chỉnh sửa</a> </td>
+                            <td>{{$ListBooking->update_at}}</td> 
+                            <td><a href="{{url('booking/edit',$ListBooking->id)}}">Chỉnh sửa</a> | <a href="{{url('booking/delete',$ListBooking->id)}}">Xoá</a></td>
                         </tr>
                     @endforeach
                     </tbody>

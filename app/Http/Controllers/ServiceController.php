@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\models\Service;
+use App\models\Category;
 
 class ServiceController extends Controller
 {
@@ -25,12 +26,12 @@ class ServiceController extends Controller
     public function index()
     {
         $ListService = Service::all();
-        return view('admin.template.index',compact('ListService'));
+        return view('admin.service.index',compact('ListService'));
     }
     public function create()
     {
-        $ListCategory = Service::all();
-        return view('admin.template.create',compact('ListCategory'));
+        $ListCategory = Category::all();
+        return view('admin.service.create',compact('ListCategory'));
     }
     public function store(Request $request)
     { 
@@ -44,15 +45,17 @@ class ServiceController extends Controller
             $image->move($destinationPath, $getimage);
             }
             date_default_timezone_set("Asia/Ho_Chi_Minh");
-            $posttemplate = new TemplateWebsite;
-            $posttemplate->name = $request->name; 
-            $posttemplate->cat_id = $request->cat_id; 
-            $posttemplate->description = $request->description;
-            $posttemplate->image = $getimage;
-            $posttemplate->created_at = date('Y-m-d H:i:s');
-            $posttemplate->save();
+            $service = new Service;
+            $service->name = $request->name; 
+            $service->cat_id = $request->cat_id; 
+            $service->description = $request->description;
+            $service->image = $getimage;
+            $service->price = $request->price; 
+            $service->status = 1;
+            $service->created_at = date('Y-m-d H:i:s');
+            $service->save();
             
             //Thực hiện chuyển trang
-            return redirect('/template/list');
+            return redirect('/service/list');
     }
 }

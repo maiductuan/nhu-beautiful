@@ -67,8 +67,15 @@ Route::post('open-hours/add', 'App\Http\Controllers\OpenHoursController@store');
 //booking
 Route::get('booking/list', 'App\Http\Controllers\BookingController@index');
 Route::get('booking/add', 'App\Http\Controllers\BookingController@create'); 
-Route::get('booking', 'App\Http\Controllers\BookingController@Booking_Create');
+Route::get('booking', 'App\Http\Controllers\BookingController@Booking_Order');
 Route::post('booking', 'App\Http\Controllers\BookingController@Booking_Store'); 
+Route::get('booking/edit/{id}', 'App\Http\Controllers\BookingController@edit'); 
+Route::post('booking/update/{id}', 'App\Http\Controllers\BookingController@update'); 
+Route::get('booking/delete/{id}', 'App\Http\Controllers\BookingController@destroy'); 
+//service
+Route::get('service/list', 'App\Http\Controllers\ServiceController@index');
+Route::get('service/add', 'App\Http\Controllers\ServiceController@create');
+Route::post('service/add', 'App\Http\Controllers\ServiceController@store');
 // Route::group(['middleware' => ['auth']], function () {
 
 // //  dashboard
